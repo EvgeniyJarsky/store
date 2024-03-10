@@ -12,9 +12,27 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-light bg-white">
             <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Ингтернет-магазин на C#</a>
-            <form class="form-inline my-2 my-lg-0" action="@Url.Action("Index", "Search")" method="get"></form>
-            <input class="form-control mr-sm-2" type="search" name="query" placeholder="авторр или название"/>
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Искать</button>
+            <form class="form-inline my-2 my-lg-0" action="@Url.Action("Index", "Search")" method="get">
+                <input class="form-control mr-sm-2" type="search" name="query" placeholder="авторр или название"/>
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Искать</button>
+            </form>
+            <span class="navbar-text mi-auto">
+                @{
+                    Cart cart;
+
+                    if (!Context.Session.TryGetCart(out cart))
+                        cart = new Cart();
+
+                    if(cart.Items.Count == 0)
+                    {
+                        @:Корзина пуста
+                    }
+                    else
+                    {
+                        @:Товаров @cart.Items.Values.Sum() на сумму @cart.Amount
+                    }
+                }
+            </span>
         </nav>
     </header>
     <div class="container">
