@@ -5,10 +5,10 @@
 }
 
 <h1>@Model.Title</h1>
-<p><strong>@Model.Authhor</strong></p>
+<p><strong>@Model.Author</strong></p>
 <p>@Model.Description</p>
 <p>Цена <strong>@Model.Price</strong></p>
-<form action="@Url.Action("Add", "Cart")" method="post">
-    <input type="hidden" name="id" value="@Model.Id"/>
-    <button class="btn btnbtn-outline-success" type="submit">В корзину</button>
+<form action="@Url.Action("AddItem", "Order")" method="post">
+    <input type="hidden" name="bookId" value="@Model.Id"/>
+    <button class="btn btn-success" type="submit">В корзину</button>
 </form>

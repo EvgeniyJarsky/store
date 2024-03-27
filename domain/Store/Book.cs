@@ -8,7 +8,7 @@ public class Book
 
     public string Isbn { get; }
 
-    public string Authhor { get; }
+    public string Author { get; }
 
     public string Title { get; }
 
@@ -20,7 +20,7 @@ public class Book
     {
         Id = id;
         Isbn = isbn;
-        Authhor = authhor;
+        Author = authhor;
         Title = title;
         Description = description;
         Price = price;
